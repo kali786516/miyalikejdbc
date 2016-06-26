@@ -1,0 +1,27 @@
+
+@(columns:IndexedSeq[String], listSeq:Iterator[IndexedSeq[String]])
+
+@main("show scala templates") {
+<!DOCTYPE html>
+<html lang="ja">
+  <head></head>
+  <body>
+
+    <h1>AAAAAAAAAAAAAAA</h1>
+    <table border="1">
+      <tr>
+        @for(column <- columns) {
+          <th>@column</th>
+        }
+      </tr>
+      @for(list <- listSeq) {
+      <tr>
+        @for(data <- list) {
+          <td>@data</td>
+        }
+      </tr>
+      }
+    </table>
+  </body>
+</html>
+}
