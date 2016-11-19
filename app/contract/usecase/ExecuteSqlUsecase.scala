@@ -2,7 +2,6 @@ package contract.usecase
 
 import adapter.dto.ExecuteSqlDto
 import contract.{PushPort, Usecase}
+import domain.{SqlResults, Statistics}
 
-import scala.collection.immutable.IndexedSeq
-
-trait ExecuteSqlUsecase extends Usecase with PushPort[ExecuteSqlDto, (IndexedSeq[String], Iterator[IndexedSeq[String]])]
+trait ExecuteSqlUsecase extends Usecase with PushPort[ExecuteSqlDto, (SqlResults, Statistics)]

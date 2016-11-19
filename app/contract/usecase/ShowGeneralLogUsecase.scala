@@ -2,7 +2,6 @@ package contract.usecase
 
 import adapter.dto.ShowGeneralLogDto
 import contract.{PushPort, Usecase}
+import domain.SqlResults
 
-import scala.collection.immutable.IndexedSeq
-
-trait ShowGeneralLogUsecase extends Usecase with PushPort[ShowGeneralLogDto, (IndexedSeq[String], Iterator[IndexedSeq[String]])]
+trait ShowGeneralLogUsecase extends Usecase with PushPort[ShowGeneralLogDto, SqlResults]

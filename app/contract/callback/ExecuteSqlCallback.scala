@@ -1,7 +1,6 @@
 package contract.callback
 
 import contract.Callback
+import domain.{SqlResults, Statistics}
 
-import scala.collection.immutable.IndexedSeq
-
-trait ExecuteSqlCallback extends Callback[(IndexedSeq[String], Iterator[IndexedSeq[String]])]
+trait ExecuteSqlCallback extends Callback[(SqlResults, Statistics)]

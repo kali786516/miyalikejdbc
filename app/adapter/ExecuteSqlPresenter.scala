@@ -3,8 +3,8 @@ package adapter
 import javax.inject.Singleton
 
 import contract.callback.ExecuteSqlCallback
+import domain.{SqlResults, Statistics}
 
-import scala.collection.immutable.IndexedSeq
 import scala.concurrent.{ExecutionContext, Future, Promise}
 
 @Singleton
@@ -18,7 +18,9 @@ class ExecuteSqlPresenter extends Presenter[ExecuteSqlCallback] {
 
   private class CallbackImpl extends ExecuteSqlCallback {
     val promise = Promise[Rendered]()
-    override def onSuccess(result: (IndexedSeq[String], Iterator[IndexedSeq[String]])) = promise.success(Ok(views.html.show(result._1, result._2)))
+    override def onSuccess(res: (SqlResults, Statistics)) = {
+      promise.success(Ok(views.html.show(res._2.columns, res._2.results, res._1.columns, res._1.results)))
+    }
 
     override def onFailure(throwable: Throwable): Unit = promise.failure(throwable)
   }

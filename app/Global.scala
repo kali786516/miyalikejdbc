@@ -1,7 +1,7 @@
 import java.sql.Connection
 import javax.inject.Inject
 
-import domain.{DBAccessWorker, DBConnection}
+import domain.DBConnection
 import play.api._
 import play.api.cache.CacheApi
 

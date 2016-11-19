@@ -14,6 +14,11 @@ class ExecuteSqlUsecaseImpl @Inject()(cache: CacheApi) extends ExecuteSqlUsecase
 
   override protected def call(dto: In)(implicit ec: ExecutionContext): Future[Out] = {
     val connection = cache.get[Connection](DBConnection.CACHE_KEY).get
-    Future(DBAccessWorker(connection, dto.sql).execute())
+
+    val accessWorker = DBAccessWorker(connection, dto.sql)
+    val statisticsResult = accessWorker.executeStatistics()
+    val sqlResult = accessWorker.execute()
+
+    Future((sqlResult, statisticsResult))
   }
 }

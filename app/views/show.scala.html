@@ -1,12 +1,26 @@
 
-@(columns:IndexedSeq[String], listSeq:Iterator[IndexedSeq[String]])
+@(StatisticsColumns:IndexedSeq[String], staticsList:Iterator[IndexedSeq[String]], columns:IndexedSeq[String], listSeq:Iterator[IndexedSeq[String]])
 
 <!DOCTYPE html>
 <html lang="ja">
   <head></head>
   <body>
 
-    <h1>AAAAAAAAAAAAAAA</h1>
+    <h1>BBBBBBBBBBBBBBBB</h1>
+    <table border="1">
+      <tr>
+        @for(column <- StatisticsColumns) {
+        <th>@column</th>
+        }
+      </tr>
+      @for(list <- staticsList) {
+      <tr>
+        @for(data <- list) {
+        <td>@data</td>
+        }
+      </tr>
+      }
+    </table><br>
     <table border="1">
       <tr>
         @for(column <- columns) {

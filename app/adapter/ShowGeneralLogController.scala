@@ -12,7 +12,7 @@ import play.api.mvc.{Action, Controller}
 import scala.concurrent.Future
 
 @Singleton
-class ShowGeneralLogController @Inject()(usecase: ShowGeneralLogUsecase, presenter: ExecuteSqlPresenter) extends Controller {
+class ShowGeneralLogController @Inject()(usecase: ShowGeneralLogUsecase, presenter: ShowGeneralLogPresenter) extends Controller {
 
   val showGeneralLogForm = Form(
     mapping(
