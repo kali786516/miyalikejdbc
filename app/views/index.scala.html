@@ -1,20 +1,17 @@
-@*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
-@(message: String)
+@import helper._
 
-@*
- * Call the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
-@main("Welcome to Play") {
-
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    @play20.welcome(message, style = "Scala")
-
-}
+<div>
+ <form action="/connection" method="post">
+  <br>
+  <fieldset>
+  DATABASE<br><input type="radio" name="dbName" value="MySQL")>MySQL<br>
+  HOST<input type="text" id="host" name="host" value="" size="10"><br>
+  PORT<input type="text" id="port" name="port" value="" size="10"><br>
+  USER<input type="text" id="user" name="user" value="" size="10"><br>
+  PASSWORD<input type="text" id="pass" name="pass" value="" size="10">
+  </fieldset>
+  <div class="actions">
+    <input type="submit">
+  </div>
+ </form>
+</div>
